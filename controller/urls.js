@@ -21,13 +21,7 @@ async function handleGenerateNewShortURL(req, res) {
     active:"home"
   })
  
-  // try {
-  //   const userUrls=await URL.find({userId:user})
-
-  //   return res.send(userUrls)
-  // } catch (error) {
-  //   return res.send(error)
-  // }
+  
  
 }
 
@@ -70,7 +64,7 @@ async function userCreated(req,res)
     
     
     try {
-        const userUrls=await URL.find({userId:userId})
+        const userUrls=await URL.find({userId:userId}).sort({createdAt:'desc'}).exec();
         
         const proto=req.protocol+'://'+req.get('host')+'/urls/redirect?shortId='
         
