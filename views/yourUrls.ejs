@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('./Component/cssScript') %>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+    
+
+ <%- include('./Component/nav') %>
+
+
+
+  <div class="container-fluid margin-urls mt-5 table-responsive-sm">  
+ 
+  <table class="table mt-5 pt-sm-4 ">
+     <thead>
+       <tr>
+         
+         <th scope="col">Your Link</th>
+         <th scope="col">Shortner Link</th>
+         <th scope="col">Number of Visited</th>
+         <th scope="col">Delete</th>
+
+ 
+         
+       </tr>
+     </thead>
+     <tbody>
+         <% if (value) { %>
+             <% value.forEach(element => { %>
+                 <tr>
+               
+                     <td><%= element.redirectURL %></td>
+                     <td><%= proto+element.shortId %></td>
+                     <td><%= element.visitHistory.length %></td>
+                     <td><a href="/urls/delete/<%= element._id %>" class="btn btn-primary bg-danger ms-2">Delete</a></td>
+                  
+                     
+                   </tr>
+              
+             <% }) %>
+          
+             
+         <% } %>
+       
+     </tbody>
+    
+   </table>
+</div>
+ 
+    <footer class="footer ">
+
+        <%- include('./Component/footer') %>
+    </footer>
+<%- include('./Component/javaScript') %>
+
+</body>
+</html>

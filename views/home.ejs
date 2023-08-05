@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include('./Component/cssScript') %>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+    
+<header>
+
+  <%- include('./Component/nav') %>
+</header>
+
+ 
+
+    <form action="/urls" method="post" class="mt-5 pt-5">
+       
+      <div class="container text-center  margin  mt-5">
+        <div class="input-group flex-nowrap">
+          <span class="input-group-text" id="addon-wrapping">URLS</span>
+          <input type="text" name="url" class="form-control" placeholder="Paste" aria-label="Username" aria-describedby="addon-wrapping">
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+ </div>
+ 
+
+
+ <% if (yourUrls) { %>
+  <div class="container mt-5 mb-3">
+    <div class="alert alert-danger bg-primary-subtle text-center text-dark " role="alert"><%=yourUrls %></div>
+  </div>
+  
+    <!-- <div class="container mt-5 ">
+       <div class="row justify-content-center bg-danger">
+           <div class="col-5"></div>
+          
+       </div>
+    </div> -->
+ <% } %>
+    <footer class="footer">
+      <%- include('./Component/footer') %>
+    </footer>
+   
+<%- include('./Component/javaScript') %>
+
+</body>
+</html>
